@@ -70,10 +70,13 @@ namespace tamogoji
         }
 
 
-        private async void aniDigRun(object sender, MouseEventArgs e)
+        private async void aniRun(object sender, MouseEventArgs e)
         {
-            imgShiftDig.BeginAnimation(TranslateTransform.XProperty, animX);
-            imgShiftDig.BeginAnimation(TranslateTransform.YProperty, animY);
+            var border = (Border)((Button)sender).Parent;
+            var brush = (ImageBrush)border.Background;
+            var translate = (TranslateTransform)brush.Transform;
+            translate.BeginAnimation(TranslateTransform.XProperty, animX);
+            translate.BeginAnimation(TranslateTransform.YProperty, animY);
             for (int i = 10; i > 5; i--)
             {
                 imageDialog.Margin = new Thickness(i);
@@ -82,10 +85,13 @@ namespace tamogoji
             imageDialog.Margin = new Thickness(5);
         }
 
-        private async void aniDigStop(object sender, MouseEventArgs e)
+        private async void aniStop(object sender, MouseEventArgs e)
         {
-            imgShiftDig.BeginAnimation(TranslateTransform.XProperty, null);
-            imgShiftDig.BeginAnimation(TranslateTransform.YProperty, null);
+            var border = (Border)((Button)sender).Parent;
+            var brush = (ImageBrush)border.Background;
+            var translate = (TranslateTransform)brush.Transform;
+            translate.BeginAnimation(TranslateTransform.XProperty, animX);
+            translate.BeginAnimation(TranslateTransform.YProperty, animY);
 
             for (int i = 5; i < 10; i++)
             {
@@ -93,30 +99,6 @@ namespace tamogoji
                 await Task.Delay(10);
             }
             imageDialog.Margin = new Thickness(10);
-        }
-        private async void aniExitRun(object sender, MouseEventArgs e)
-        {
-            imgShiftExit.BeginAnimation(TranslateTransform.XProperty, animX);
-            imgShiftExit.BeginAnimation(TranslateTransform.YProperty, animY);
-            for (int i = 10; i > 5; i--)
-            {
-                imageExit.Margin = new Thickness(i);
-                await Task.Delay(10);
-            }
-            imageExit.Margin = new Thickness(5);
-        }
-
-        private async void aniExitStop(object sender, MouseEventArgs e)
-        {
-            imgShiftExit.BeginAnimation(TranslateTransform.XProperty, null);
-            imgShiftExit.BeginAnimation(TranslateTransform.YProperty, null);
-
-            for (int i = 5; i < 10; i++)
-            {
-                imageExit.Margin = new Thickness(i);
-                await Task.Delay(10);
-            }
-            imageExit.Margin = new Thickness(10);
         }
 
         private void DialogButtonClick(object sender, RoutedEventArgs e)

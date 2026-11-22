@@ -117,7 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\buttons\dialogueButtonText.png" />
+    <Resource Include="image\buttonsText\dialogueButtonText.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\Doki_Doki_Literature_Club_Logo.ico" />
