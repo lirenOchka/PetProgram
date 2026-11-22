@@ -237,18 +237,8 @@ namespace tamogoji
 
         private async void Pet_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            // как в старом коде — правый клик открывает меню
-            if (!DataPet.openMenu)
-            {
                 DataPet.Menu = new MenuWindow(this);
                 DataPet.Menu.Show();
-                DataPet.openMenu = true;
-            }
-            else
-            {
-                var w = DataPet.Menu;
-                if (w != null) w.WindowState = WindowState.Normal;
-            }
         }
 
         private async Task Jump()

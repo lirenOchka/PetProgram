@@ -4,15 +4,6 @@
         Title="Menu" Width="500" Height="510"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
-    <!--
-    Псевдокод (план):
-    1. Для кнопки определить локальный Style.
-    2. В Style установить начальные значения: Background=Transparent, Opacity=1.
-    3. Добавить Trigger по свойству IsMouseOver:
-       - при IsMouseOver=True установить Opacity=0 (кнопка визуально прозрачна).
-    4. Сохранить существующие обработчики MouseEnter/MouseLeave (они продолжат работать).
-    5. При желании можно заменить Setter на анимацию для плавного перехода (BeginStoryboard).
-    -->
     <Window.Background>
         <ImageBrush ImageSource="/image/fon.jpg" Stretch="Fill" ViewportUnits="Absolute" TileMode="Tile" Viewport=" 0,00,75,75">
             <ImageBrush.Transform>
@@ -40,23 +31,61 @@
                     </ImageBrush.Transform>
                 </ImageBrush>
             </Border.Background>
-            <Button Background="Transparent" 
+            <Button Background="Transparent"
                    MouseLeave="aniDigStop"
                    MouseEnter="aniDigRun"
+                   BorderBrush="Transparent"
+                   Click="DialogButtonClick"
                     >
+                <Button.Content>
+                    <Image x:Name="imageDialog" Source="/image/buttons/dialogueButtonText.png" Margin="12"/>
+                </Button.Content>
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="BorderThickness" Value="0"/>
-                        <Setter Property="Opacity" Value="1"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Opacity" Value="0"/>
-                            </Trigger>
-                        </Style.Triggers>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
                     </Style>
                 </Button.Style>
             </Button>
         </Border>
+
+        <!--кнопка выхода-->
+        <Border Grid.Column="1" Grid.Row="4" Margin="5" CornerRadius="5" BorderThickness="3" BorderBrush="#711265">
+            <Border.Background >
+                <ImageBrush ImageSource="/image/nullFon.png" Stretch="Fill" ViewportUnits="Absolute" TileMode="Tile" Viewport=" 0,0,40,40">
+                    <ImageBrush.Transform>
+                        <TranslateTransform x:Name="imgShiftExit"/>
+                    </ImageBrush.Transform>
+                </ImageBrush>
+            </Border.Background>
+            <Button Background="Transparent"
+           MouseLeave="aniExitStop"
+           MouseEnter="aniExitRun"
+           BorderBrush="Transparent"
+           Click="ExitButtonClick"
+            >
+                <Button.Content>
+                    <Image x:Name="imageExit" Source="/image/buttons/dialogueButtonText.png" Margin="12"/>
+                </Button.Content>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Border>
+        
+        
     </Grid>
 </Window>

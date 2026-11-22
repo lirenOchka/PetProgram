@@ -117,12 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\buttons\ButtonExitOff.png" />
-    <Resource Include="image\buttons\ButtonExitOn.png" />
-    <Resource Include="image\buttons\dialogueButtonOff.png" />
-    <Resource Include="image\buttons\dialogueButtonOn.png" />
-    <Resource Include="image\buttons\ILoveYouOff.png" />
-    <Resource Include="image\buttons\ILoveYouOn.png" />
+    <Resource Include="image\buttons\dialogueButtonText.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\Doki_Doki_Literature_Club_Logo.ico" />
@@ -140,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\dialogFon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\nullFon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
